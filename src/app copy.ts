@@ -1,6 +1,7 @@
 import fs from 'fs';
+import { yargs } from './config/plugins/yargs.plugin.js';
 
-const base = 9;
+const base = 5;
 let outputMessage = '';
 const header = `
 =================================
