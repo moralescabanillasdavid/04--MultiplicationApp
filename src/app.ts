@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { yargs } from "./config/plugins/yargs.plugin.js";
+import { ServerApp } from './presentation/server-app.js';
 
 const { b: base, l: limit, s: showTable } = yargs;
 
@@ -32,6 +33,10 @@ async function main() {
     fs.mkdirSync(outputPath, { recursive: true });
     fs.writeFileSync(`${outputPath}/${fileName}`, outputMessage);
     console.log('File created!');
+
+    ServerApp.run({ base, limit, showTable });
+
+    
 
 }
 
