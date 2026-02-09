@@ -21,6 +21,18 @@ export const yargs = yargsPkg(hideBin(process.argv))
         default: false,
         describe: 'Show multiplication table'
     })
+    .option('n', {
+        alias: 'name',
+        type:'string',
+        default:'tabla-multiplicar',
+        describe:'Nombre del archivo'
+    })
+    .option('d',{
+        alias: 'destination',
+        type: 'string',
+        default: './outputs',
+        describe: 'Destino de archivo de la tabla de multiplicar'
+    })
     .check((argv, options) => {
         if (argv.b < 1) throw 'Error: base must be greater than 0';
         return true;

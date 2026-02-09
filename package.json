@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
     "dev:nodemon": "nodemon -b 7",
+    "dev:test": "tsx src/app.ts -b 10 -l 5 -s -n custom-table.txt -d custom-outputs",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/app.js"
   },

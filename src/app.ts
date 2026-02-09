@@ -2,7 +2,7 @@ import fs from 'fs';
 import { yargs } from "./config/plugins/yargs.plugin.js";
 import { ServerApp } from './presentation/server-app.js';
 
-const { b: base, l: limit, s: showTable } = yargs;
+const { b: base, l: limit, s: showTable, n: name, d: destination } = yargs;
 
 (async () => {
     await main();
@@ -27,16 +27,11 @@ async function main() {
         console.log(outputMessage);
     }
 
-    const outputPath = `outputs`;
-    const fileName = `tabla-${base}.txt`;
-
-    fs.mkdirSync(outputPath, { recursive: true });
-    fs.writeFileSync(`${outputPath}/${fileName}`, outputMessage);
-    console.log('File created!');
+    fs.mkdirSync(destination, { recursive: true });
+    fs.writeFileSync(`${destination}/${name}`, outputMessage);
+    console.log(`File created at ${destination}/${name}`);
 
     ServerApp.run({ base, limit, showTable });
-
-    
 
 }
 
